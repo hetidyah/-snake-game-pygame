@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cute Snake Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="game-container">
+
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- MENU -->
+    <div id="menuScreen" class="screen">
+        <h1>🐍 CUTE SNAKE</h1>
+        <p class="subtitle">Maroon Edition</p>
+
+        <div class="best-menu">
+            BEST SCORE
+            <span id="bestMenu">0</span>
+        </div>
+
+        <button id="startButton">▶ MULAI GAME</button>
+        <button id="exitButton">✕ KELUAR</button>
+    </div>
+
+    <!-- GAME UI -->
+    <div id="gameUI">
+
+        <div class="header">
+            <div>
+                <span>SCORE</span>
+                <strong id="scoreText">0</strong>
+            </div>
+
+            <div>
+                <span>LEVEL</span>
+                <strong id="levelText">1</strong>
+            </div>
+
+            <div>
+                <span>BEST</span>
+                <strong id="bestText">0</strong>
+            </div>
+        </div>
+
+        <!-- TOMBOL KONTROL -->
+        <div class="controls">
+
+            <button id="upButton" class="control up">▲</button>
+
+            <div class="control-row">
+                <button id="leftButton" class="control">◀</button>
+                <button id="downButton" class="control">▼</button>
+                <button id="rightButton" class="control">▶</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- GAME OVER -->
+    <div id="gameOver" class="screen hidden">
+
+        <h1>GAME OVER</h1>
+
+        <p>Score kamu</p>
+        <div id="finalScore">0</div>
+
+        <button id="restartButton">↻ MAIN LAGI</button>
+        <button id="menuButton">⌂ MENU</button>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
