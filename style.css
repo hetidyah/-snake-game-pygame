@@ -1,0 +1,481 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background: #640019;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.game-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+canvas {
+    display: block;
+    background: #f8e1e6;
+}
+
+/* ==========================================
+   SCREEN
+========================================== */
+
+.screen {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #faebee;
+
+    overflow: hidden;
+}
+
+/* ==========================================
+   DEKORASI
+========================================== */
+
+.decor {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.decor-1 {
+    width: 150px;
+    height: 150px;
+
+    background: #dcaab5;
+
+    left: -55px;
+    top: -40px;
+}
+
+.decor-2 {
+    width: 170px;
+    height: 170px;
+
+    background: #be8291;
+
+    right: -70px;
+    bottom: -60px;
+}
+
+.decor-3 {
+    width: 50px;
+    height: 50px;
+
+    background: #ebbec8;
+
+    right: 30px;
+    top: 30px;
+}
+
+/* ==========================================
+   MENU
+========================================== */
+
+.menu-panel {
+    position: relative;
+
+    width: 440px;
+    min-height: 490px;
+
+    padding: 45px 35px;
+
+    background: #fffafa;
+
+    border-radius: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    box-shadow:
+        0 15px 35px rgba(80, 0, 20, 0.20);
+
+    z-index: 2;
+}
+
+.menu-panel h1 {
+    color: #800020;
+
+    font-size: 52px;
+
+    margin-bottom: 15px;
+
+    letter-spacing: 2px;
+}
+
+/* ==========================================
+   SNAKE PREVIEW
+========================================== */
+
+.snake-preview {
+    position: relative;
+
+    width: 100px;
+    height: 40px;
+
+    margin-bottom: 15px;
+}
+
+.snake-preview span {
+    position: absolute;
+
+    width: 25px;
+    height: 25px;
+
+    border-radius: 8px;
+}
+
+.snake-preview span:nth-child(1) {
+    left: 10px;
+    background: #800020;
+}
+
+.snake-preview span:nth-child(2) {
+    left: 35px;
+    background: #a52a44;
+}
+
+.snake-preview span:nth-child(3) {
+    left: 60px;
+    background: #640019;
+}
+
+.snake-preview .eye {
+    position: absolute;
+
+    width: 6px;
+    height: 6px;
+
+    background: white;
+
+    border-radius: 50%;
+
+    left: 16px;
+    top: 5px;
+}
+
+.welcome {
+    color: #784852;
+
+    font-size: 20px;
+
+    margin-bottom: 25px;
+}
+
+/* ==========================================
+   BEST SCORE
+========================================== */
+
+.best-score {
+    width: 220px;
+
+    padding: 14px;
+
+    margin-bottom: 25px;
+
+    background: #f5dce1;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    color: #3c141e;
+
+    font-size: 17px;
+}
+
+/* ==========================================
+   BUTTON
+========================================== */
+
+.menu-panel button,
+.game-over-box button {
+    width: 240px;
+    height: 55px;
+
+    border: none;
+    border-radius: 15px;
+
+    color: white;
+
+    font-size: 17px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    margin: 5px;
+
+    transition:
+        transform 0.15s,
+        opacity 0.15s;
+}
+
+.menu-panel button:hover,
+.game-over-box button:hover {
+    transform: scale(1.03);
+}
+
+.menu-panel button:active,
+.game-over-box button:active {
+    transform: scale(0.97);
+}
+
+#startButton {
+    background: #800020;
+}
+
+#exitButton {
+    background: #a52a44;
+}
+
+/* ==========================================
+   INFO
+========================================== */
+
+.controls-info {
+    margin-top: 18px;
+
+    text-align: center;
+
+    color: #784852;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+/* ==========================================
+   GAME SCREEN
+========================================== */
+
+.game-screen {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    background: #f8e1e6;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ==========================================
+   TOP BAR
+========================================== */
+
+.top-bar {
+    position: absolute;
+
+    top: 15px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: min(700px, 94%);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    z-index: 5;
+}
+
+.info-box {
+    flex: 1;
+
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #fffafa;
+
+    border-radius: 15px;
+
+    color: #3c141e;
+
+    font-size: 17px;
+    font-weight: bold;
+}
+
+/* ==========================================
+   GAME OVER
+========================================== */
+
+.game-over {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(100, 0, 25, 0.82);
+
+    z-index: 10;
+}
+
+.game-over-box {
+    width: min(500px, 90%);
+
+    padding: 35px;
+
+    background: #fffafa;
+
+    border-radius: 25px;
+
+    text-align: center;
+}
+
+.game-over-box h2 {
+    color: #800020;
+
+    font-size: 42px;
+
+    margin-bottom: 15px;
+}
+
+.final-score {
+    color: #3c141e;
+
+    font-size: 25px;
+
+    margin-bottom: 15px;
+}
+
+.game-over-box p {
+    color: #784852;
+
+    margin: 8px;
+}
+
+#restartButton {
+    background: #800020;
+}
+
+#menuButton {
+    background: #a52a44;
+}
+
+/* ==========================================
+   MOBILE CONTROL
+========================================== */
+
+.mobile-controls {
+    display: none;
+
+    position: absolute;
+
+    bottom: 15px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    z-index: 20;
+
+    text-align: center;
+}
+
+.mobile-controls button {
+    width: 55px;
+    height: 45px;
+
+    margin: 3px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: #800020;
+
+    color: white;
+
+    font-size: 20px;
+
+    touch-action: manipulation;
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+
+    body {
+        background: #640019;
+    }
+
+    .menu-panel {
+        width: calc(100% - 50px);
+        min-height: 500px;
+
+        padding: 35px 20px;
+    }
+
+    .menu-panel h1 {
+        font-size: 42px;
+    }
+
+    .welcome {
+        font-size: 17px;
+    }
+
+    .top-bar {
+        width: calc(100% - 20px);
+        top: 8px;
+    }
+
+    .info-box {
+        height: 43px;
+
+        font-size: 14px;
+    }
+
+    .mobile-controls {
+        display: block;
+    }
+
+    .game-over-box h2 {
+        font-size: 36px;
+    }
+
+    .game-over-box button {
+        width: 200px;
+        height: 48px;
+    }
+}
