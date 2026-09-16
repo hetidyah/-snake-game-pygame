@@ -1,0 +1,515 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #370514;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+
+/* =========================
+   SCREEN
+========================= */
+
+.screen {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+#menuScreen {
+    background: #370514;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================
+   HIASAN
+========================= */
+
+.decoration {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.35;
+}
+
+.decoration-1 {
+    width: 80px;
+    height: 80px;
+    left: 60px;
+    top: 70px;
+    background: #78102d;
+}
+
+.decoration-2 {
+    width: 60px;
+    height: 60px;
+    right: 70px;
+    top: 75px;
+    background: #a52d4b;
+}
+
+.decoration-3 {
+    width: 70px;
+    height: 70px;
+    right: 50px;
+    bottom: 50px;
+    background: #78102d;
+}
+
+
+/* =========================
+   PANEL MENU
+========================= */
+
+.menu-panel {
+    width: 460px;
+    max-width: 90%;
+    height: 430px;
+
+    background: #4b071b;
+
+    border: 2px solid #d26987;
+    border-radius: 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 55px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================
+   JUDUL
+========================= */
+
+.menu-panel h1 {
+    color: #ffebf2;
+    font-size: 60px;
+    letter-spacing: 3px;
+}
+
+
+/* =========================
+   ULAR KECIL
+========================= */
+
+.mini-snake {
+    display: flex;
+    margin-top: 18px;
+}
+
+.mini-snake span {
+    width: 18px;
+    height: 18px;
+    margin: 0 2px;
+    border-radius: 6px;
+}
+
+.mini-snake span:nth-child(1) {
+    background: #af2d46;
+}
+
+.mini-snake span:nth-child(2) {
+    background: #911e37;
+}
+
+.mini-snake span:nth-child(3) {
+    background: #6e1428;
+}
+
+.mini-snake span:nth-child(4) {
+    background: #af2d46;
+}
+
+.mini-snake span:nth-child(5) {
+    background: #911e37;
+}
+
+
+/* =========================
+   TEKS
+========================= */
+
+.welcome {
+    color: #d26987;
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+#menuBest {
+    color: #ffebf2;
+    font-size: 18px;
+    margin-top: 15px;
+}
+
+
+/* =========================
+   TOMBOL MENU
+========================= */
+
+.menu-button {
+    width: 240px;
+    height: 48px;
+
+    border-radius: 14px;
+    border: 2px solid #ffebf2;
+
+    font-size: 20px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    margin-top: 15px;
+
+    transition: 0.2s;
+}
+
+.menu-button:hover {
+    transform: scale(1.04);
+}
+
+.menu-button:active {
+    transform: scale(0.97);
+}
+
+.start {
+    background: #d26987;
+    color: #55051e;
+}
+
+.exit {
+    background: #781e37;
+    color: #ffebf2;
+    border-color: #d26987;
+}
+
+.controls-info {
+    color: #d26987;
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+
+/* =========================
+   GAME SCREEN
+========================= */
+
+#gameScreen {
+    background: #370514;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.game-header {
+    width: 100%;
+    height: 100px;
+
+    background: #4b071b;
+
+    border-bottom: 2px solid #d26987;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 25px;
+
+    color: #ffebf2;
+}
+
+.score-area {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#scoreText {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+#levelText {
+    font-size: 22px;
+    color: #d26987;
+}
+
+#bestText {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   CANVAS
+========================= */
+
+#gameCanvas {
+    position: absolute;
+
+    left: 0;
+    top: 100px;
+
+    width: 100%;
+    height: calc(100% - 100px);
+
+    display: block;
+}
+
+
+/* =========================
+   TOMBOL ARAH
+========================= */
+
+.controls {
+    position: absolute;
+
+    right: 35px;
+    bottom: 45px;
+
+    width: 180px;
+    height: 180px;
+
+    z-index: 10;
+}
+
+
+/* TOMBOL */
+
+.control-button {
+    position: absolute;
+
+    width: 58px;
+    height: 58px;
+
+    background: #ffd7e4;
+
+    border: 3px solid #d26987;
+
+    border-radius: 16px;
+
+    color: #55051e;
+
+    font-size: 34px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 0 #2d020f;
+
+    transition: 0.12s;
+}
+
+.control-button:hover {
+    background: #ffc2d5;
+}
+
+.control-button:active {
+    transform: translateY(5px);
+    box-shadow: none;
+}
+
+
+/* ATAS */
+
+#upButton {
+    left: 61px;
+    top: 0;
+}
+
+
+/* KIRI */
+
+#leftButton {
+    left: 0;
+    top: 72px;
+}
+
+
+/* BAWAH */
+
+#downButton {
+    left: 61px;
+    top: 72px;
+    transform: translateY(72px);
+}
+
+
+/* KANAN */
+
+#rightButton {
+    right: 0;
+    top: 72px;
+}
+
+
+/* =========================
+   GAME OVER
+========================= */
+
+.game-over {
+    position: absolute;
+
+    inset: 0;
+
+    background: rgba(20, 0, 8, 0.72);
+
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* PANEL GAME OVER */
+
+.game-over-panel {
+    width: 460px;
+    height: 300px;
+
+    background: #4b071b;
+
+    border: 3px solid #d26987;
+
+    border-radius: 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 50px;
+}
+
+
+/* JUDUL */
+
+.game-over-panel h2 {
+    color: #ffebf2;
+    font-size: 48px;
+}
+
+
+/* SCORE */
+
+#finalScore {
+    color: #d26987;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+
+/* TOMBOL GAME OVER */
+
+.game-over-buttons {
+    display: flex;
+    gap: 15px;
+
+    margin-top: 35px;
+}
+
+.game-over-buttons button {
+    width: 150px;
+    height: 50px;
+
+    border-radius: 14px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.game-over-buttons button:hover {
+    transform: scale(1.04);
+}
+
+#restartButton {
+    background: #d26987;
+    color: #55051e;
+    border: 2px solid #d26987;
+}
+
+#gameExitButton {
+    background: #781e37;
+    color: #ffebf2;
+    border: 2px solid #d26987;
+}
+
+
+/* =========================
+   RESPONSIVE HP
+========================= */
+
+@media (max-width: 700px) {
+
+    .menu-panel {
+        height: 400px;
+    }
+
+    .menu-panel h1 {
+        font-size: 42px;
+    }
+
+    .welcome {
+        font-size: 17px;
+    }
+
+    .game-header {
+        height: 85px;
+    }
+
+    #gameCanvas {
+        top: 85px;
+        height: calc(100% - 85px);
+    }
+
+    #scoreText,
+    #bestText {
+        font-size: 19px;
+    }
+
+    #levelText {
+        font-size: 17px;
+    }
+
+    .controls {
+        right: 20px;
+        bottom: 25px;
+        transform: scale(0.8);
+        transform-origin: bottom right;
+    }
+}
