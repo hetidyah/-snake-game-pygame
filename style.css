@@ -1,0 +1,87 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    background: #500018;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    touch-action: none;
+}
+
+.game-wrapper {
+    width: min(400px, 100vw);
+    position: relative;
+}
+
+#gameCanvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 100vh;
+    background: #800020;
+    border-radius: 0;
+}
+
+.mobile-controls {
+    display: none;
+    position: absolute;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%);
+    width: 180px;
+    z-index: 10;
+}
+
+.control-row {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.control {
+    width: 52px;
+    height: 45px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 245, 245, 0.92);
+    color: #800020;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(0,0,0,.25);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.control:active {
+    transform: scale(.92);
+    background: #ffdfe5;
+}
+
+.up {
+    display: block;
+    margin: 0 auto 8px;
+}
+
+@media (max-width: 600px) {
+    .mobile-controls {
+        display: block;
+    }
+
+    #gameCanvas {
+        width: 100vw;
+        height: 150vw;
+        max-height: 100vh;
+        object-fit: contain;
+    }
+}
